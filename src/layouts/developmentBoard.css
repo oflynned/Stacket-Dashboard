@@ -1,4 +1,13 @@
 .development-board {
-    height: 200vh;
-    /*background-color: red;*/
+    height: 100vh;
+}
+
+.development-board .screen-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-left: 84px;
+    min-height: 100vh;
+    width: 100vw;
+    background-color: #F8F9FA;
 }

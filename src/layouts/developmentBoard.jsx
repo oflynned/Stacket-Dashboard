@@ -36,7 +36,10 @@ class DevelopmentBoard extends Component {
     render() {
         return (
             <div className={"development-board"}>
-                <SideNav/>
+                <SideNav selectedIndex={0}/>
+                <div className={"screen-content"}>
+                    <p>hello world</p>
+                </div>
             </div>
         );
     }
