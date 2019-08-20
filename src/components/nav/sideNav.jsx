@@ -25,22 +25,28 @@ const icons = [
     }
 ];
 
-const SideNav = ({onClick, selectedIndex}) =>
+const loadSvg = (path, fillColour) => {
+    const svg = require("../../assets/images/" + path);
+    return svg;
+}
+
+const SideNav = ({selectedIndex}) =>
     <div className={"side-nav"}>
-        <img className={"icon hamburger"} src={require("../../assets/images/baseline-hamburger-24px.svg")}/>
+        <img className={"action icon hamburger"} src={require("../../assets/images/baseline-hamburger-24px.svg")}/>
         <ul>
             {
                 icons.map(({title, url, icon}, index) =>
                     <li>
-                        <img className={"icon " + (selectedIndex === index ? "selected" : "unselected")}
-                             onClick={() => onClick(url)}
-                             src={require("../../assets/images/" + icon)}/>
+                        <div className={"action circle " + (selectedIndex === index ? "selected" : "unselected")}>
+                            <img className={"icon"} src={loadSvg(icon)}/>
+                        </div>
                     </li>
                 )
             }
         </ul>
 
-        <img className={"icon log-out"} src={require("../../assets/images/baseline-power_settings_new-24px.svg")}/>
+        <img className={"action icon log-out"}
+             src={require("../../assets/images/baseline-power_settings_new-24px.svg")}/>
     </div>;
 
 export default SideNav;
