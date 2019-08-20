@@ -6,7 +6,7 @@
     border-right: 1px solid #D8D8D8;
 }
 
-.side-nav .hamburger {
+.side-nav .hamburger, .side-nav .log-out {
     margin: 30px;
     width: 24px;
 }
