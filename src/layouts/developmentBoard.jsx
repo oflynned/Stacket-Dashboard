@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import {Redirect} from "react-router-dom";
 
 import SideNav from "../components/nav/sideNav";
 
@@ -30,17 +31,27 @@ const columns = [
 class DevelopmentBoard extends Component {
     constructor() {
         super();
-        this.state = {};
+        this.state = {
+            isRedirecting: false,
+            redirectDestination: null
+        };
     }
 
+    onClick = destination => {
+        this.setState({isRedirecting: true, redirectDestination: destination})
+    };
+
     render() {
+        const {isRedirecting, redirectDestination} = this.state;
         return (
-            <div className={"development-board"}>
-                <SideNav selectedIndex={0}/>
-                <div className={"screen-content"}>
-                    <p>hello world</p>
+            isRedirecting ?
+                <Redirect to={redirectDestination}/> :
+                <div className={"development-board"}>
+                    <SideNav onClick={this.onClick} selectedIndex={0}/>
+                    <div className={"screen-content"}>
+                        <p>Development board</p>
+                    </div>
                 </div>
-            </div>
         );
     }
 }
