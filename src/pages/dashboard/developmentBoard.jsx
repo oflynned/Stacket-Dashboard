@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import {Redirect} from "react-router-dom";
 
-import SideNav from "../components/nav/sideNav";
+import SideNav from "../../components/nav/sideNav";
 
 import "./developmentBoard.css";
 
