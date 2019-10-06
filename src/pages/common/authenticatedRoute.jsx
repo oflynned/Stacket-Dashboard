@@ -1,17 +1,22 @@
 import React from 'react';
 import { Redirect, Route } from 'react-router-dom';
 
-const PrivateRoute = ({ component: Component, auth, ...rest }) => (
-  <Route
-    {...rest}
-    render={props =>
-      auth.verifiedSession ? (
-        <Component {...props} />
-      ) : (
-        <Redirect to="/login"/>
-      )
-    }
-  />
-);
+const AuthenticatedRoute = ({ component: Component, auth, ...rest }) => {
+  return (
+    <Route
+      {...rest}
+      render={props => {
+        console.log(auth);
+        if (auth.hasVerifiedSession) {
+          console.log('verified');
+          return <Component {...props} />;
+        }
 
-export default PrivateRoute;
+        console.log('not verified');
+        return <Redirect to="/login"/>;
+      }}
+    />
+  );
+};
+
+export default AuthenticatedRoute;
