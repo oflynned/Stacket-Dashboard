@@ -1,1 +1,1 @@
-website: NODE_ENV=production npm start
+website: npm run serve
