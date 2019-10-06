@@ -3,6 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-babel": "^5.1.0",
+    "eslint-plugin-import": "^2.12.0",
+    "eslint-plugin-react": "^7.16.0",
     "express": "latest",
     "express-favicon": "^2.0.1",
     "node-sass": "^4.12.0",
@@ -15,6 +19,7 @@
     "secure-ls": "^1.2.5"
   },
   "scripts": {
+    "lint": "eslint . --fix",
     "heroku-postbuild": "npm install && npm run build",
     "start": "react-scripts start",
     "serve": "NODE_ENV=production node server.js",
